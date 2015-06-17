@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Addpost";
+}
+@{
+    Layout = "~/Views/Shared/AfterLoginLayout.cshtml";
+}
+
+<h2>Addpost</h2>
+
+         
+                    <div class="navbar" >
+        <div class ="navbar-inner">
+        <div class="container">
+        <div class="row">
+        <div class="span8">
+                 <form id="f1" action="/Home/SaveAd" method="post" enctype="multipart/form-data">
+             <table border="0">
+                          <tr>
+           <td>
+            Category
+            &nbsp
+            &nbsp
+            &nbsp
+            </td>
+            <td>
+            <select name="Category" id="Category"  class="text-box single-line" data-val="true" data-val-required="Select a Category" >
+             <option value="">Select a Category</option> 
+                <option value="Electronics">Electronics</option> 
+             <option value="Mobiles">Mobiles</option> 
+                <option value="Computers">Computers</option> 
+             <option value="Animals">Animals</option> 
+                <option value="Laptops">Laptops</option> 
+             <option value="Cars">Cars</option> 
+                <option value="Houses">Houses</option> 
+             <option value="Other">Other</option> 
+             
+            </select>
+            </td>
+                               <td>
+                   <div class="field-validation-valid" data-valmsg-for="Category" data-valmsg-replace="true"></div>
+                    </td>
+            </tr> 
+
+              
+          
+            <tr>
+            <td>
+           Add Title
+           
+           </td>
+           <td>
+           <input type="text" name="Title"  class="text-box single-line" data-val="true" data-val-required="This must be a Title" />
+            </td>
+                <td>
+                   <div class="field-validation-valid" data-valmsg-for="Title" data-valmsg-replace="true"></div>
+                    </td>
+           </tr>
+            <tr>
+            <td>
+            Description
+            </td>
+            <td>
+           <textarea  class="text-box single-line" data-val="true" data-val-required="This must be a Description" name="Description" style="height:100px; width:300px"></textarea>
+           </td>
+                <td>
+                   <div class="field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></div>
+                    </td>
+           </tr>
+              <tr>
+            <td>
+           Price
+           </td>
+            <td>
+           <input type="text" name="Price"  class="text-box single-line" data-val="true" data-val-required="This must be a Price" />
+            </td>
+                  <td>
+                   <div class="field-validation-valid" data-valmsg-for="Price" data-valmsg-replace="true"></div>
+                    </td>
+            </tr>
+            <tr>
+            <td>
+             Upload Image
+             </td> 
+             <td>
+             <input type="file" name="Image"  class="text-box single-line" data-val="true" data-val-required="This must be a Image"/>
+            </td>
+           <td>
+                   <div class="field-validation-valid" data-valmsg-for="Image" data-valmsg-replace="true"></div>
+                    </td>
+              </tr>
+        
+           </table>
+                     <input type ="submit" value ="Post Ad"  class="btn btn-info" style =" font-size: medium; height:60px;width:290px" /> 
+
+       </form>  
+      
+       </div>
+            </div>    
+    </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,316 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+}
+
+<h2>SignUp</h2>
+
+
+  @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            
+
+            $('#b1').click(function () {
+
+                var userName = $('#UserName').val();
+
+                //alert('User Name ='+ userName);
+              
+                $.getJSON("/home/CheckUserName?UserName=" + userName, function (data) {
+                   
+                    if (data) {
+                        $('#result').text("User already exists in database");
+
+                    }
+                    else {
+                        $('#result').text("User Name is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+    
+       
+        <div class="navbar" >
+        <div class ="navbar-inner">
+        <div class="container">
+        <div class="row">
+        <div class="span8">
+        
+         
+
+        <form action="/SignUp/SaveSignUp" method="post">
+          <div>
+            
+
+          </div>
+         
+            <table border="0" style="text-align:center">
+ 
+                <tr>
+                    <td>
+                 First Name:
+                    </td>
+                    <td>
+                   
+                        <input class="text-box single-line" data-val="true" data-val-required="This must be a Name" type="text" id="FirstName" name="FirstName" placeholder="First Name"
+           style="height:30px" 
+           data-original-title="FirstName"
+           data-content="what is your FirstName"
+           data-placement="right"
+           />
+                  
+                    </td>
+                     <td>
+                   <div class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                   Last Name:
+                    </td>
+                    <td>
+                       <input class="text-box single-line" data-val="true" data-val-required="This must be a Name" type="text" id="LastName" name="LastName" placeholder="Last Name"
+           style="height:30px" 
+           data-original-title="LastName"
+           data-content="what is your Last Name"
+           data-placement="right"
+           />
+                    </td>
+                     <td>
+                   <div class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></div>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                   User Name
+                    </td>
+                    <td>
+                      <input class="text-box single-line" data-val="true" data-val-required="This must be a User Name"  type="text" id="UserName" name="UserName" placeholder="User Name"
+           style="height:30px" 
+           data-original-title="User Name"
+           data-content="what is your User Name"
+           data-placement="right"
+           />
+                    </td>
+                      <td>
+                   <div class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></div>
+                    </td>
+                     <td>
+
+                          <input type="button" id="b1" value="Check" />
+
+                     </td>
+                   
+                      <td>
+                        <div id="result"></div>
+                    </td>
+                   
+                 </tr>
+                
+                   
+                
+                <tr>
+                    <td>
+                   Passward:
+                    </td> 
+                    <td>
+                    <input  class="text-box single-line" data-val="true" data-val-required="This must be a Passward" type="password" id="Passward" name="Passward" placeholder="Passward"
+           style="height:30px" 
+           data-original-title="Passward"
+           data-content="what is your Passward"
+           data-placement="right"
+           />
+                  
+                    </td>
+                     <td>
+                   <div class="field-validation-valid" data-valmsg-for="Passward" data-valmsg-replace="true"></div>
+                    </td>
+                 </tr>
+                <tr>
+                    <td>
+                    Email:
+                    </td>
+                    <td>
+                      <input class="text-box single-line" data-val="true" data-val-required="This must be a Email" type="email" id="Email" name="Email" placeholder="Email"
+           style="height:30px" 
+           data-original-title="Email"
+           data-content="what is your Email"
+           data-placement="right"
+           />
+                    </td> 
+                     <td>
+                   <div class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></div>
+                    </td>
+                 </tr>
+                 
+             <tr>
+         <td>
+            Gender :
+          </td> 
+         <td>
+            Male <input class="text-box single-line" data-val="true" data-val-required="This must be a Gender" type="radio" name="Gender" value="Male" />
+             &nbsp
+            Female <input   type="radio" name="Gender" value="Female" />
+          
+            </td>
+                  <td>
+                   <div class="field-validation-valid" data-valmsg-for="Gender" data-valmsg-replace="true"></div>
+                    </td>
+            </tr>
+          
+            <tr >
+            <td >
+            Date of Birth
+            </td>
+            <td>
+                @{
+                    List<SelectListItem> list = new List<SelectListItem>();
+                    
+                    list.Add(new SelectListItem { Text = "Jan", Value = "Jan" });
+                    list.Add(new SelectListItem { Text = "Feb", Value = "Feb" });
+                    list.Add(new SelectListItem { Text = "Mar", Value = "Mar" });
+                    list.Add(new SelectListItem { Text = "Apr", Value = "Apr" });
+                    list.Add(new SelectListItem { Text = "May", Value = "May" });
+                    list.Add(new SelectListItem { Text = "Jun", Value = "Jun" });
+                    list.Add(new SelectListItem { Text = "Jul", Value = "Jul" });
+                    list.Add(new SelectListItem { Text = "Aug", Value = "Aug" });
+                    list.Add(new SelectListItem { Text = "Sep", Value = "Sep" });
+                    list.Add(new SelectListItem { Text = "Oct", Value = "Oct" });
+                    list.Add(new SelectListItem { Text = "Nov", Value = "Nov" });
+                    list.Add(new SelectListItem { Text = "Dec", Value = "Dec" });
+
+                    ViewBag.month = list;
+
+                    List<SelectListItem> day = new List<SelectListItem>();
+                
+                    day.Add(new SelectListItem { Text = "1", Value = "1" });
+                    day.Add(new SelectListItem { Text = "2", Value = "2" });
+                    day.Add(new SelectListItem { Text = "3", Value = "3" });
+                    day.Add(new SelectListItem { Text = "4", Value = "4" });
+                    day.Add(new SelectListItem { Text = "5", Value = "5" });
+                    day.Add(new SelectListItem { Text = "6", Value = "6" });
+                    day.Add(new SelectListItem { Text = "7", Value = "7" });
+                    day.Add(new SelectListItem { Text = "8", Value = "8" });
+                    day.Add(new SelectListItem { Text = "9", Value = "9" });
+                    day.Add(new SelectListItem { Text = "10", Value = "10" });
+                    day.Add(new SelectListItem { Text = "11", Value = "11" });
+                    day.Add(new SelectListItem { Text = "12", Value = "12" });
+                    day.Add(new SelectListItem { Text = "13", Value = "13" });
+                    day.Add(new SelectListItem { Text = "14", Value = "14" });
+                    day.Add(new SelectListItem { Text = "15", Value = "15" });
+                    day.Add(new SelectListItem { Text = "16", Value = "16" });
+                    day.Add(new SelectListItem { Text = "17", Value = "17" });
+                    day.Add(new SelectListItem { Text = "18", Value = "18" });
+                    day.Add(new SelectListItem { Text = "19", Value = "19" });
+                    day.Add(new SelectListItem { Text = "20", Value = "20" });
+                    day.Add(new SelectListItem { Text = "21", Value = "21" });
+                    day.Add(new SelectListItem { Text = "22", Value = "22" });
+                    day.Add(new SelectListItem { Text = "23", Value = "23" });
+                    day.Add(new SelectListItem { Text = "24", Value = "24" });
+                    day.Add(new SelectListItem { Text = "25", Value = "25" });
+                    day.Add(new SelectListItem { Text = "26", Value = "26" });
+                    day.Add(new SelectListItem { Text = "27", Value = "27" });
+                    day.Add(new SelectListItem { Text = "28", Value = "28" });
+                    day.Add(new SelectListItem { Text = "29", Value = "29" });
+                    day.Add(new SelectListItem { Text = "30", Value = "30" });
+                    day.Add(new SelectListItem { Text = "31", Value = "31" });
+
+                    ViewBag.day = day;
+
+                    List<SelectListItem> year = new List<SelectListItem>();
+                 
+                    year.Add(new SelectListItem { Text = "1991", Value = "1991" });
+                    year.Add(new SelectListItem { Text = "1992", Value = "1992" });
+                    year.Add(new SelectListItem { Text = "1993", Value = "1993" });
+                    year.Add(new SelectListItem { Text = "1994", Value = "1994" });
+                    year.Add(new SelectListItem { Text = "1995", Value = "1995" });
+                    year.Add(new SelectListItem { Text = "1996", Value = "1996" });
+                    year.Add(new SelectListItem { Text = "1997", Value = "1997" });
+                    year.Add(new SelectListItem { Text = "1998", Value = "1998" });
+                    year.Add(new SelectListItem { Text = "1999", Value = "1999" });
+                    year.Add(new SelectListItem { Text = "2000", Value = "2000" });
+                    year.Add(new SelectListItem { Text = "2001", Value = "2001" });
+                    year.Add(new SelectListItem { Text = "2002", Value = "2002" });
+                    year.Add(new SelectListItem { Text = "2003", Value = "2003" });
+                    year.Add(new SelectListItem { Text = "2004", Value = "2004" });
+                    year.Add(new SelectListItem { Text = "2005", Value = "2005" });
+                    year.Add(new SelectListItem { Text = "2006", Value = "2006" });
+                    year.Add(new SelectListItem { Text = "2007", Value = "2007" });
+                    year.Add(new SelectListItem { Text = "2008", Value = "2008" });
+                    year.Add(new SelectListItem { Text = "2009", Value = "2009" });
+                    year.Add(new SelectListItem { Text = "2010", Value = "2010" });
+                    year.Add(new SelectListItem { Text = "2011", Value = "2011" });
+                    year.Add(new SelectListItem { Text = "2012", Value = "2012" });
+                    year.Add(new SelectListItem { Text = "2013", Value = "2013" });
+
+                    ViewBag.year = year;
+                }
+            @Html.DropDownList("month")
+            <br />
+            @Html.DropDownList("day")
+            <br />
+            @Html.DropDownList("year")
+            </td>
+            </tr>
+            <tr>
+                
+                    
+                
+            <td colspan="2">
+             <input type ="submit" value ="SignUp" class="btn btn-info" style =" font-size: medium; height:60px;width:250px" /> 
+            </td>
+            </tr>
+
+        </table>
+            <script>
+
+                $(document).ready(
+                    function () {
+                        $('#FirstName').popover();
+                    });
+    </script>
+<script>
+
+    $(document).ready(
+        function () {
+            $('#LastName').popover();
+        });
+    </script>
+<script>
+
+    $(document).ready(
+        function () {
+            $('#Email').popover();
+        });
+    </script>
+<script>
+
+    $(document).ready(
+        function () {
+            $('#UserName').popover();
+        });
+    </script>
+<script>
+
+    $(document).ready(
+        function () {
+            $('#Passward').popover();
+        });
+    </script>
+        </form>
+
+        </div>
+        </div>    
+    </div>
+    </div>
+</div>
+    
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+<form action="/Home/LoginCheck" method="post">
+    <table border="0" style="text-align:center">
+ 
+                <tr>
+                    <td>
+                User Name
+                    </td>
+                    <td>
+                   
+                        <input class="text-box single-line" data-val="true" data-val-required="This must be a User Name" type="text" id="UserName" name="UserName"  placeholder="User Name" 
+           style="height:30px" 
+           data-original-title="FirstName"
+           data-content="what is your FirstName"
+           data-placement="right"
+                           
+           />
+                        </td>
+                    <td>
+                        <div class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></div>
+                      
+                  
+                    </td>
+                    </tr>
+        <tr>
+                    <td>
+                Passward
+                    </td>
+                    <td>
+                   
+                        <input class="text-box single-line" data-val="true" data-val-required="This must be a Passward" type="password" id="Passward" name="Passward" placeholder="Passward"
+           style="height:30px" 
+           data-original-title="Passward"
+           data-content="what is your Passward"
+           data-placement="right"
+           />
+                        </td>
+            <td>
+                   <div class="field-validation-valid" data-valmsg-for="Passward" data-valmsg-replace="true"></div>
+                    </td>
+                    </tr>
+        <tr>
+            <td>
+            <p>you Must Login</p>
+                </td>
+        </tr>
+         <tr>
+            <td colspan="2">
+             <input type ="submit" value ="Login" class="btn btn-info" style =" font-size: medium; height:60px;width:250px" /> 
+            </td>
+            </tr>
+        </table>
+    </form>
+<script>
+
+    $(document).ready(
+        function () {
+            $('#UserName').popover();
+        });
+    </script>
+<script>
+
+    $(document).ready(
+        function () {
+            $('#Passward').popover();
+        });
+    </script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

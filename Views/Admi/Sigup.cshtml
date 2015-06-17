@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Bootstrap/bootstrap.css" />
+    <script src="~/Bootstrap/bootstrap.js"></script>
+
+    <title>Admin SignUp</title>
+</head>
+<body style="background-image: url('../../Images/addmin.jpg');">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <img src="~/Images/logo.jpg" style="margin-top:10px" />
+        </div>
+        <div>
+            <ul class="nav navbar-nav" style=" font-size:xx-large ; color:antiquewhite ; font-style:italic ; font-stretch:expanded ; margin-top:30px ; margin-left:200px">
+                <li> Admin Panel </li>
+                <li class="btn btn-danger bgcolor" style="margin-left:420px"> <a href="/Admi/Logi" style="color: antiquewhite"> Log In </a> </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row" style="margin-top:30px">
+        <div class="col-md-6">
+         
+        </div>
+        <div class="col-xs-6" style="margin-left:350px">
+            <form method="post" action="/Admi/SaveAdmin" style="font-size:large ; color:antiquewhite ; margin-top:40px ; margin-left:40px">
+                Name        : <input type="text" name ="name" placeholder="Name" style="margin-left:53px"> <br /> <br />
+                Email       : <input type="text" name ="email" placeholder="Email" style="margin-left:53px"> <br /> <br />
+                UserName    : <input type="text" name ="userName" placeholder="UserName" style="margin-left:15px"> <br /> <br />
+                Password    : <input type="password" name ="pass" placeholder="Password" style="margin-left:18px"> <br /> <br />
+                <input type="submit" class="btn btn-danger bgcolor" value="SignUp" style="margin-left:250px" />
+            </form>
+        </div>
+    </div>
+
+    <footer class="modal-footer" style="height:3% ; margin-top:14% ; background-color:black ; font-style:italic ; color:antiquewhite"> Made By Rabia Javed </footer>
+</body>
+</html>

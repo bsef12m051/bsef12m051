@@ -1,0 +1,50 @@
+﻿@model List<MyProject.Models.Ad>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2>Index</h2>
+
+
+
+  @foreach (var item in Model)
+    {       
+        
+        
+        <div class="row">
+  <div class="span8">
+    <div class="row">
+      <div class="span8">
+        <h4><strong>Title : @item.Title</strong></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3">
+            <img src="@item.Image" class="img-rounded img-responsive">
+      </div>
+      <div class="span6">      
+        <p>
+           <h5>Product Description:</h5>
+              @item.Description
+        </p>
+        
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span8">
+        <p>
+            <h5>Poster Information:</h5>
+            Name:    @item.User.FirstName @item.User.LastName
+            <br />
+            Email:   @item.User.Email
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+        
+    }
